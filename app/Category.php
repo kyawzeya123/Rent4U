@@ -10,4 +10,10 @@ class Category extends Model
      						'name',
      						'logo'
        					    ];
+
+     public function drivers($value='')
+  	{
+  		 return $this->belongsToMany('App\Driver')
+  		 			->withTimestamps();
+  	}
 }

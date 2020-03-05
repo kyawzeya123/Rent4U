@@ -22,6 +22,7 @@ class CreateDriversTable extends Migration
             $table->text('avatar');
             $table->string('age');
             $table->string('nrc');
+            $table->text('experience');
 
             $table->timestamps();
         });

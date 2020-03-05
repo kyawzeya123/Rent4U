@@ -13,6 +13,12 @@ class Driver extends Model
      						'address',
      						'avatar',
      						'age',
-     						'nrc'
+     						'nrc',
+                'experience'
     					    ];
+
+    public function categories($value='')
+  	{
+  		 return $this->belongsToMany('App\Category')->withTimestamps();
+  	}
 }

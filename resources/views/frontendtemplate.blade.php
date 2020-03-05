@@ -5,8 +5,9 @@
   <!-- Required meta tags -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <link rel="icon" href="{{asset('rent4u/img/favicon.png')}}" type="{{asset('rent4u/image/png')}}" />
-  <title>Lagoon Logistics</title>
+  <meta name="csrf-token" content="{{ csrf_token() }}">
+  <link rel="icon" href="{{asset('img/address logo.png')}}" type="{{asset('img/address logo.png')}}" />
+  <title>Rent4U</title>
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="{{asset('rent4u/css/bootstrap.css')}}" />
   <link rel="stylesheet" href="{{asset('rent4u/vendors/linericon/style.css')}}" />
@@ -18,6 +19,7 @@
   <!-- main css -->
   <link rel="stylesheet" href="{{asset('rent4u/css/style.css')}}" />
   <link rel="stylesheet" href="{{asset('rent4u/css/responsive.css')}}" />
+  <link rel='stylesheet' href="{{asset('rent4u/css/cars.css')}}"  />
 </head>
 
 <body>
@@ -29,7 +31,7 @@
         <div class="container">
           <!-- Brand and toggle get grouped for better mobile display -->
           <a class="navbar-brand logo_h" href="index.html">
-            <img src="{{asset('rent4u/img/logo1.png')}}" alt="" style="width: 120px;"/>
+            <img src="{{asset('rent4u/img/logo1.png')}}" alt="" />
           </a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -42,14 +44,19 @@
             <div class="row w-100">
               <div class="col-lg-12 pr-lg-0">
                 <ul class="nav navbar-nav ml-auto justify-content-end">
-                  <li class="nav-item active">
-                    <a class="nav-link" href="index.html">Home</a>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{route('main')}}">Home</a>
                   </li>
-                  <li class="nav-item ">
-                    <a class="nav-link" href="about.html">About</a>
+                  
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{route('services')}}">Services</a>
                   </li>
-                  <li class="nav-item ">
-                    <a class="nav-link" href="services.html">Services</a>
+
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{route('abouts')}}">About</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{route('contacts')}}">Contact</a>
                   </li>
                   <li class="nav-item submenu dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
@@ -60,21 +67,11 @@
                       </li>
                     </ul>
                   </li>
-                  <li class="nav-item submenu dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                      aria-expanded="false">Blog</a>
-                    <ul class="dropdown-menu">
-                      <li class="nav-item">
-                        <a class="nav-link" href="blog.html">Blog</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="blog-details.html">Blog Details</a>
-                      </li>
-                    </ul>
+
+                  <li class="nav-item ">
+                    <a class="nav-link" ><img src="{{asset('img/address logo.png')}}" class="img-fluid" style="height: 40px;"></a>
                   </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="contact.html">Contact</a>
-                  </li>
+                  
                 </ul>
               </div>
             </div>
@@ -120,7 +117,7 @@
       <div class="row">
         <div class="col-lg-12">
           <p class="footer-text"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Rent <span style="font-size: 25px;"><i style="color: blue;">4</i></span> U</a>
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
         </div>
       </div>
@@ -141,6 +138,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
   <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
   <script src="{{asset('rent4u/js/mail-script.js')}}"></script>
   <script src="{{asset('rent4u/js/custom.js')}}"></script>
+  @yield('script')
 </body>
 
 </html>

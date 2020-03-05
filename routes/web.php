@@ -14,4 +14,20 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('dashboard','FrontendController@dashboard');
+Route::get('main','FrontendController@Main')->name('main');
+Route::get('services','FrontendController@Services')->name('services');
+Route::get('abouts','FrontendController@Abouts')->name('abouts');
+Route::get('contacts','FrontendController@Contacts')->name('contacts');
+Route::get('fcars/{id}','FrontendController@Fcars')->name('fcars');
+Route::get('details/{id}/{catid}','FrontendController@details')->name('details');
+Route::resource('drivers','DriverController');
+Route::resource('cars','CarController');
+Route::resource('categories','CategoryController');
+Route::post('/rent','RentController@rents');
+Route::get('/backend/cars/{id}','CarController@getData');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/allrent','RentController@allrent')->name('allrent');
